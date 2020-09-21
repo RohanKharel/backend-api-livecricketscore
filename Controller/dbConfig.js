@@ -1,6 +1,6 @@
 var Sequelize  = require('sequelize');
 
-var sequelize = new Sequelize('livecricketscore','root','1234',{
+var sequelize = new Sequelize('livecricketscore','root','6789',{
 	host : 'localhost',
 	dialect: 'mysql',
 	logging:false
