@@ -20,6 +20,13 @@ app.post('/loginvalidation', AuthController.verifyToken, AuthController.verifyAd
 app.put('/userUpdate', AuthController.verifyToken, UserController.userUpdate);
 app.get('/getUser', AuthController.verifyToken, UserController.getUser);
 
+//api for ScoreController
+app.post('/addScore', AuthController.verifyToken, AuthController.verifyAdmin, ScoreController.addScore);
+app.delete('/deleteScore/:id', ScoreController.deleteScore);
+app.post('/imageUpload', ImageController.image, ImageController.imageFileName);
+app.put('/updateScore/:id', ScoreController.updateScore);
+
+
 app.listen(3011);
 
 module.exports = app;
