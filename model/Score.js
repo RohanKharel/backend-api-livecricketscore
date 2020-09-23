@@ -58,7 +58,12 @@ var score = db.sequelize.define('score', {
         allowNull: false
     },
 
-    Image: {
+    Image1: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    Image2: {
         type: db.Sequelize.TEXT,
         allowNull: false
     }

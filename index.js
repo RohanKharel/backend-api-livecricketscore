@@ -28,6 +28,8 @@ app.post('/addScore', AuthController.verifyToken, AuthController.verifyAdmin, Sc
 app.delete('/deleteScore/:id', ScoreController.deleteScore);
 app.post('/imageUpload', ImageController.image, ImageController.imageFileName);
 app.put('/updateScore/:id', ScoreController.updateScore);
+app.get('/getScore', ScoreController.getScore);
+app.get('/searchScore/:type', ScoreController.searchScore);
 app.post('/addFeedback', AuthController.verifyToken, FeedbackController.addFeedback);
 
 

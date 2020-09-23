@@ -12,7 +12,8 @@ function addScore(req, res, next){
         target:req.body.target,
         type:req.body.type,
         result:req.body.result,
-        Image:req.body.Image
+        Image1:req.body.Image1,
+        Image2:req.body.Image2
      
 
     })
@@ -96,11 +97,64 @@ function updateScore(req, res, next){
 
 }
 
+function getScore(req, res, next){
+    score.score.findAll()
+    .then(function(result){
+        if(result === null){
+            res.json({status:404, message:'score  not found'})
+
+        }
+        else{
+            res.json(result)
+        }
+    })
+
+    .catch(function(err){
+        res.json({status:500, message:'There was an error searching score!'})
+    })
+}    
+
+function searchScore(req, res, next){
+
+    console.log(req.params.id)
+    if(req.params.name === null){
+        res.status(500);
+        res.json({status:500, message: 'Required ID is not provided'})
+    }
+
+    
+        score.score.findOne({
+            where: {
+                type: req.params.type
+            }
+        }).then(function(result){
+            if(result === 0){
+                result.json({message:"no data"})
+            }
+            else{
+                console.log(result)
+            res.send(result);
+            
+            }
+            
+
+
+            
+        })
+
+        .catch(function(err){
+            next(err);
+        })
+    }
+
+
 
 
 
 module.exports ={
     addScore,
     deleteScore,
-    updateScore
+    updateScore,
+    getScore,
+    searchScore
 }
