@@ -1,12 +1,18 @@
-var product = require('../model/Score.js');
+var score = require('../model/Score.js');
 
 function addScore(req, res, next){
-    console.log(req.body);
+    console.log(req.body.run);
     score.score.create({
-        run:req.body.run,
+        country1:req.body.country1,
+        country2:req.body.country2,
+        run1:req.body.run1,
+        run2:req.body.run2,
+        over1:req.body.over1,
+        over2:req.body.over2,
+        target:req.body.target,
         type:req.body.type,
         result:req.body.result,
-        Image:req.body.image,
+        Image:req.body.Image
      
 
     })
@@ -94,7 +100,7 @@ function updateScore(req, res, next){
 
 
 module.exports ={
-    addProduct,
-    deleteProduct,
-    updateProduct
+    addScore,
+    deleteScore,
+    updateScore
 }

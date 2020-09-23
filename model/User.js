@@ -35,7 +35,9 @@ var user = db.sequelize.define('user', {
     },
     admin:{
         type: db.Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        defaultValue:0
+
     }
 },
 {

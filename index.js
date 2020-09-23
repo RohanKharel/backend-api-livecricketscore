@@ -6,8 +6,11 @@ var bodyParser = require('body-parser');
 
 var UserController = require('./Controller/UserController');
 var AuthController = require('./Controller/AuthController');
+var ScoreController = require('./Controller/ScoreController');
+var ImageController = require('./Controller/ImageController');
+var FeedbackController = require('./Controller/FeedbackController')
 const app = express();
-
+app.use(express.static(__dirname + "/public"));
 app.use(cors());
 app.use(express.json());
 app.use(morgan('tiny'));
@@ -25,6 +28,7 @@ app.post('/addScore', AuthController.verifyToken, AuthController.verifyAdmin, Sc
 app.delete('/deleteScore/:id', ScoreController.deleteScore);
 app.post('/imageUpload', ImageController.image, ImageController.imageFileName);
 app.put('/updateScore/:id', ScoreController.updateScore);
+app.post('/addFeedback', AuthController.verifyToken, FeedbackController.addFeedback);
 
 
 app.listen(3011);

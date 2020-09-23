@@ -53,6 +53,8 @@ function registerUser(req, res, next){
         email: req.body.email,  
         phone:req.body.phone,
         password:req.userHash,
+        admin:req.body.admin
+       
         
     })
     .then(function(result){

@@ -94,7 +94,9 @@ function verifyAdmin(req, res, next){
     }).then(function(result){
         console.log(result.admin)
         if(result.admin === 1){
-          
+         
+            
+        
             next();
         }
         else{

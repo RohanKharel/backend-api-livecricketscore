@@ -11,25 +11,55 @@ var score = db.sequelize.define('score', {
         allowNull: false
     },
 
-    run: {
-        type: db.Sequelize.INTEGER,
+    country1: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    country2: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    run1: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    run2: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    over1: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    over2: {
+        type: db.Sequelize.TEXT,
+        allowNull: false
+    },
+
+    target: {
+        type: db.Sequelize.TEXT,
         allowNull: false
     },
 
 
     type: {
-        type: db.Sequelize.STRING,
+        type: db.Sequelize.TEXT,
         allowNull: false
 
     },
 
     result: {
-        type: db.Sequelize.STRING,
+        type: db.Sequelize.TEXT,
         allowNull: false
     },
 
     Image: {
-        type: db.Sequelize.STRING,
+        type: db.Sequelize.TEXT,
         allowNull: false
     }
 },
