@@ -13,7 +13,8 @@ function addScore(req, res, next){
         type:req.body.type,
         result:req.body.result,
         Image1:req.body.Image1,
-        Image2:req.body.Image2
+        Image2:req.body.Image2,
+        categoryId: req.body.categoryId
      
 
     })
@@ -148,6 +149,28 @@ function searchScore(req, res, next){
     }
 
 
+function getScoreByCategory(req, res, next){
+    console.log(req.params  )    
+    score.score.findAll({
+            where: {
+                categoryId: req.params.id
+            }
+        })
+        .then(function(result){
+            if(result === null){
+                res.json({status:404, message:'No type found'})
+            }
+            else{
+                res.json(result)
+            }
+        })
+    
+        .catch(function(err){
+            res.json(err)
+        })
+    }   
+
+
 
 
 
@@ -156,5 +179,6 @@ module.exports ={
     deleteScore,
     updateScore,
     getScore,
-    searchScore
+    searchScore,
+    getScoreByCategory
 }

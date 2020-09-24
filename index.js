@@ -8,6 +8,7 @@ var UserController = require('./Controller/UserController');
 var AuthController = require('./Controller/AuthController');
 var ScoreController = require('./Controller/ScoreController');
 var ImageController = require('./Controller/ImageController');
+var CategoryController = require('./Controller/CategoryController');
 var FeedbackController = require('./Controller/FeedbackController')
 const app = express();
 app.use(express.static(__dirname + "/public"));
@@ -30,6 +31,11 @@ app.post('/imageUpload', ImageController.image, ImageController.imageFileName);
 app.put('/updateScore/:id', ScoreController.updateScore);
 app.get('/getScore', ScoreController.getScore);
 app.get('/searchScore/:type', ScoreController.searchScore);
+
+app.get('/getScoreByCategory/:id', ScoreController.getScoreByCategory);
+app.get('/getCategory', CategoryController.getCategory);
+app.post('/addCategory', CategoryController.addCategory);
+
 app.post('/addFeedback', AuthController.verifyToken, FeedbackController.addFeedback);
 
 

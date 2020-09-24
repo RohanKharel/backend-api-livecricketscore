@@ -1,8 +1,7 @@
 var db = require('../Controller/dbConfig');
-var category = require('./Category')
 var user = require('./User')
 
-var score = db.sequelize.define('score', {
+var upcomingmatches = db.sequelize.define('upcomingmatches', {
     //attributes
 
     id: {
@@ -22,39 +21,13 @@ var score = db.sequelize.define('score', {
         allowNull: false
     },
 
-    run1: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    run2: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    over1: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    over2: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    target: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-
-    type: {
+    matchdetails: {
         type: db.Sequelize.TEXT,
         allowNull: false
 
     },
 
-    result: {
+    startdetail: {
         type: db.Sequelize.TEXT,
         allowNull: false
     },
@@ -72,18 +45,16 @@ var score = db.sequelize.define('score', {
     {
 
         freezeTableName: true,
-        tableName: 'scoreTable',
+        tableName: 'upcomingmatchesTable',
         paranoid: true
     }
 )
-category.category.hasMany(score);
-score.belongsTo(category.category);
 
 
-user.user.hasMany(score);
-score.belongsTo(user.user);
+user.user.hasMany(upcomingmatches);
+upcomingmatches.belongsTo(user.user);
 
-score.sync({ force:false })
+upcomingmatches.sync({ force:false })
     .then(function () {
 
     })
@@ -96,5 +67,5 @@ score.sync({ force:false })
 
 
 module.exports = {
-    db, score
+    db, upcomingmatches
 }
