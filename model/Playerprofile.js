@@ -1,7 +1,7 @@
 var db = require('../Controller/dbConfig');
 var user = require('./User')
 
-var upcomingmatches = db.sequelize.define('upcomingmatches', {
+var playerpfrofile = db.sequelize.define('playerprofile', {
     //attributes
 
     id: {
@@ -11,23 +11,35 @@ var upcomingmatches = db.sequelize.define('upcomingmatches', {
         allowNull: false
     },
 
-    country11: {
+    name: {
         type: db.Sequelize.STRING,
         allowNull: false
     },
 
-    country22: {
+    country: {
         type: db.Sequelize.STRING,
         allowNull: false
     },
 
-    matchdetails1: {
+    odirun: {
         type: db.Sequelize.STRING,
         allowNull: false
 
     },
 
-    startdetail: {
+    t20run: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+
+    },
+
+
+    testrun: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+        
+    },
+    Wickets: {
         type: db.Sequelize.STRING,
         allowNull: false
         
@@ -36,16 +48,16 @@ var upcomingmatches = db.sequelize.define('upcomingmatches', {
     {
 
         freezeTableName: true,
-        tableName: 'upcomingmatchesTable',
+        tableName: 'playerprofileTable',
         paranoid: true
     }
 )
 
 
-user.user.hasMany(upcomingmatches);
-upcomingmatches.belongsTo(user.user);
+user.user.hasMany(playerpfrofile);
+playerpfrofile.belongsTo(user.user);
 
-upcomingmatches.sync({ force:false })
+playerpfrofile.sync({ force:false })
     .then(function () {
 
     })
@@ -58,5 +70,5 @@ upcomingmatches.sync({ force:false })
 
 
 module.exports = {
-    db, upcomingmatches
+    db, playerpfrofile
 }

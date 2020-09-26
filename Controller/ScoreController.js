@@ -10,11 +10,8 @@ function addScore(req, res, next){
         over1:req.body.over1,
         over2:req.body.over2,
         target:req.body.target,
-        type:req.body.type,
-        result:req.body.result,
-        Image1:req.body.Image1,
-        Image2:req.body.Image2,
-        categoryId: req.body.categoryId
+        matchdetails:req.body.matchdetails,
+        result:req.body.result
      
 
     })
@@ -115,39 +112,6 @@ function getScore(req, res, next){
     })
 }    
 
-function searchScore(req, res, next){
-
-    console.log(req.params.id)
-    if(req.params.name === null){
-        res.status(500);
-        res.json({status:500, message: 'Required ID is not provided'})
-    }
-
-    
-        score.score.findOne({
-            where: {
-                type: req.params.type
-            }
-        }).then(function(result){
-            if(result === 0){
-                result.json({message:"no data"})
-            }
-            else{
-                console.log(result)
-            res.send(result);
-            
-            }
-            
-
-
-            
-        })
-
-        .catch(function(err){
-            next(err);
-        })
-    }
-
 
 function getScoreByCategory(req, res, next){
     console.log(req.params  )    
@@ -179,6 +143,5 @@ module.exports ={
     deleteScore,
     updateScore,
     getScore,
-    searchScore,
     getScoreByCategory
 }

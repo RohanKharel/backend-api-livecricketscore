@@ -3,12 +3,10 @@ var upcomingmatches = require('../model/Upcomingmatches.js');
 function addUpcomingmatches(req, res, next){
     console.log(req.body.run);
     upcomingmatches.upcomingmatches.create({
-        country1:req.body.country1,
-        country2:req.body.country2,
-        matchdetails:req.body.type,
-        startdetail:req.body.result,
-        Image1:req.body.Image1,
-        Image2:req.body.Image2
+        country11:req.body.country11,
+        country22:req.body.country22,
+        matchdetails1:req.body.matchdetails1,
+        startdetail:req.body.startdetail
 
     })
 
@@ -108,7 +106,7 @@ function getUpcomingmatches(req, res, next){
 
 
 module.exports ={
-    
+
     addUpcomingmatches,
     deleteUpcomingmatches,
     updateUpcomingmatches,

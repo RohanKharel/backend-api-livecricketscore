@@ -48,23 +48,12 @@ var score = db.sequelize.define('score', {
     },
 
 
-    type: {
+    matchdetails: {
         type: db.Sequelize.TEXT,
         allowNull: false
-
     },
 
     result: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    Image1: {
-        type: db.Sequelize.TEXT,
-        allowNull: false
-    },
-
-    Image2: {
         type: db.Sequelize.TEXT,
         allowNull: false
     }
