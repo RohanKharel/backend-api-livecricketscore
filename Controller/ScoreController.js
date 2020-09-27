@@ -18,7 +18,6 @@ function addScore(req, res, next){
 
     .then(function(result){
         console.log(result);
-        // res.send("product added successfully");
         res.json({
                 status: 200
             })
